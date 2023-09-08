@@ -1,24 +1,6 @@
-# feedmeio
+# Feed-Me.io
 
-## Project setup
+## Food-Creatifity Application
 ```
-npm install
+Kleines Projekt für eine Rezeptsammlung mit der Möglichkeit, Rezepte zu erstellen, zu bearbeiten und zu löschen.
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
