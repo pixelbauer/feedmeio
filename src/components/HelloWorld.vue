@@ -49,8 +49,8 @@ export default {
       let slideResult;
       if(swiper.previousIndex === 1){
         if (swiper.realIndex > swiper.previousIndex) {
-          // Nach rechts geswiped
-          console.log('Nach rechts geswiped');
+          // Nach rechts geswipt
+          console.log('Nach rechts geswipt');
           slideResult = 'right';
           //Neues Rezept laden
           axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -68,8 +68,8 @@ export default {
             });
           recipient.value.name = "Rezept xyz"+Math.random()*100;
         } else if (swiper.realIndex < swiper.previousIndex) {
-          // Nach links geswiped
-          console.log('Nach links geswiped');
+          // Nach links geswipt
+          console.log('Nach links geswipt');
           slideResult = 'left';
           // Rezept Hinzufügen
         }
