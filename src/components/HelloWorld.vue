@@ -1,41 +1,94 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+
+
+    <swiper class="mySwiper"
+            :slides-per-view="1"
+            :space-between="50"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange">
+      <swiper-slide class="pushSlide swiper-slide">JEP</swiper-slide>
+      <swiper-slide class="swiper-slide">Slide 2
+
+      {{recipient.name}}{{recipient}}</swiper-slide>
+      <swiper-slide class="nopeSlide swiper-slide">NOPE</swiper-slide>
+    </swiper>
+    {{slideResults}}
+    <ul><li v-for="res in slideResults" v-bind:key="res">{{res}}</li></ul>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
+import  {Swiper, SwiperSlide} from "swiper/vue";
+import "swiper/swiper-bundle.css";
+import axios from 'axios';
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+
+    const slideResults = ref([]); // Verwenden Sie ref, um auf slideResults zuzugreifen
+    const recipient = ref({}); // Verwenden Sie ref, um auf slideResults zuzugreifen
+    const onSwiper = (swiper) => {
+      swiper.slideTo(1);
+      recipient.value.name = "Rezept 1"
+      console.log(swiper);
+    };
+    const onSlideChange = (swiper) => {
+      let slideResult;
+      if(swiper.previousIndex === 1){
+        if (swiper.realIndex > swiper.previousIndex) {
+          // Nach rechts geswiped
+          console.log('Nach rechts geswiped');
+          slideResult = 'right';
+          //Neues Rezept laden
+          axios.get('https://jsonplaceholder.typicode.com/todos/1')
+            .then(function (response) {
+              // handle success
+              console.log(response);
+              recipient.value = response.data;
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            })
+            .then(function () {
+              // always executed
+            });
+          recipient.value.name = "Rezept xyz"+Math.random()*100;
+        } else if (swiper.realIndex < swiper.previousIndex) {
+          // Nach links geswiped
+          console.log('Nach links geswiped');
+          slideResult = 'left';
+          // Rezept Hinzufügen
+        }
+        if(slideResult){
+          slideResults.value.push(slideResult);
+        }
+
+        console.log('res',slideResults);
+        swiper.slideTo(1);
+      }
+    };
+    return {
+      recipient,
+      slideResults,
+      onSwiper,
+      onSlideChange,
+    };
+
+  },
 }
 </script>
 
@@ -52,7 +105,14 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+.mySwiper .swiper-slide{
+  background:#c0c0c0;
+  height:200px;
+}
+.mySwiper .swiper-slide.nopeSlide{
+  background:red;
+}
+.mySwiper .swiper-slide.pushSlide{
+  background:green;
 }
 </style>
