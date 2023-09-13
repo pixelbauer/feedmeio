@@ -29,10 +29,9 @@ jobs:
         server: ec2-18-184-71-229.eu-central-1.compute.amazonaws.com
         username: ftpuser
         password: ${{ secrets.FTP_PASS }}
-        server-dir: /food-o-bot.de/
+        server-dir: /food-o-bot.de2/
         local-dir: ./dist/
         timeout: 600
-        protocol: ftps-legacy
         exclude: |
           **/.git/**
           **/.github/**
