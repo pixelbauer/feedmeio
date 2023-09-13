@@ -35,5 +35,6 @@ jobs:
         timeout: 600
         exclude: |
           **/.git/**
+          **/.idea/**
           **/.github/**
     
