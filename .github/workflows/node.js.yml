@@ -32,6 +32,7 @@ jobs:
         server-dir: /food-o-bot.de/
         local-dir: ./dist/
         timeout: 600
+        protocol: ftps-legacy
         exclude: |
           **/.git/**
           **/.github/**
