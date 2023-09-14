@@ -104,7 +104,7 @@ export default {
           blocklist.value.push(recipe.value.recipe_id);
           console.log(blocklist.value)
             axios
-                .post( "http://api.feed-me.local/recipe/finder", {
+                .post( "https://api.feed-me.de/recipe/finder", {
                   data: { blocklist: blocklist.value  },
                 })
                 .then((response) => {
