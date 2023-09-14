@@ -74,7 +74,7 @@ export default {
     const addWeeklyPlan = ref(false); // Verwenden Sie ref, um auf slideResults zuzugreifen
     const onSwiper = (swiper) => {
       axios
-          .post( "http://api.feed-me.local/recipe/finder", {
+          .post( "https://api.feed-me.de/recipe/finder", {
             data: { login: "go",  },
           })
           .then((response) => {
@@ -84,7 +84,7 @@ export default {
     };
     const swipeRefresh = () => {
       axios
-          .post( "http://api.feed-me.local/recipe/finder", {
+          .post( "https://api.feed-me.de/recipe/finder", {
             data: { login: "go",  },
           })
           .then((response) => {
