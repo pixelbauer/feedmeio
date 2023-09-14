@@ -1,4 +1,4 @@
-# Food-o-bot
+# Feed-Me.io
 
 ## Food-Creatifity Application
 ```
