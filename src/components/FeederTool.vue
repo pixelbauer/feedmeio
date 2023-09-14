@@ -74,7 +74,7 @@ export default {
     const addWeeklyPlan = ref(false); // Verwenden Sie ref, um auf slideResults zuzugreifen
     const onSwiper = (swiper) => {
       axios
-          .post( "https://api.feed-me.de/recipe/finder", {
+          .post( "https://api.food-o-bot.de/recipe/finder", {
             data: { login: "go",  },
           })
           .then((response) => {
@@ -84,7 +84,7 @@ export default {
     };
     const swipeRefresh = () => {
       axios
-          .post( "https://api.feed-me.de/recipe/finder", {
+          .post( "https://api.food-o-bot.de/recipe/finder", {
             data: { login: "go",  },
           })
           .then((response) => {
@@ -104,7 +104,7 @@ export default {
           blocklist.value.push(recipe.value.recipe_id);
           console.log(blocklist.value)
             axios
-                .post( "https://api.feed-me.de/recipe/finder", {
+                .post( "https://api.food-o-bot.de/recipe/finder", {
                   data: { blocklist: blocklist.value  },
                 })
                 .then((response) => {
