@@ -24,6 +24,7 @@ const routes = [
 ];
 const router = VueRouter.createRouter({
     history: createWebHistory(),
+    mode: 'history',
     routes,
 });
 
