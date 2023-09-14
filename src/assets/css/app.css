@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Shuneet';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('@/assets/fonts/Shuneet/shuneet3-thin.ttf');
+}
+@font-face {
+    font-family: 'Shuneet';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('@/assets/fonts/Shuneet/shuneet3-bold.ttf');
+}
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('@/assets/fonts/Rubik/Rubik-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('@/assets/fonts/Rubik/Rubik-Light.ttf');
+}
+
+.logoText{
+    font-family: 'Shuneet', serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.subLogo{
+    font-family: 'Rubik', sans-serif;
+    font-size:1rem;
+}

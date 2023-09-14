@@ -11,7 +11,9 @@
                     </div>
                     <h2>
                         <router-link to="/">
-                            LOGO
+                            <img src="@/assets/img/robi.png" alt="Food-o-Bot"><br>
+                            <b class="logoText">Food-o-Bot</b><br>
+                            <span class="subLogo">Swipe your Meal</span>
                         </router-link>
                     </h2>
                     <div class="inputBox">
@@ -88,8 +90,7 @@
         display:flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
-        background:#232323;
+        min-height: calc(100vh - 75px);
     }
     .alertLogin{
         transition: all 0.2s;
@@ -114,7 +115,7 @@
     .box{
         position: relative;
         width:380px;
-        height:420px;
+        height:650px;
         background: #1c1c1c;
         border-radius: 8px;
         overflow: hidden;
@@ -126,7 +127,7 @@
         top:-50%;
         left:-50%;
         width:380px;
-        height:420px;
+        height:650px;
         background:linear-gradient(0deg,transparent,
         transparent,#00b6ed,#00b6ed,#00b6ed);
         z-index:1;
@@ -140,7 +141,7 @@
         top:-50%;
         left:-50%;
         width:380px;
-        height:420px;
+        height:650px;
         background:linear-gradient(0deg,transparent,
         transparent,#00b6ed,#00b6ed,#00b6ed);
         z-index:1;
@@ -164,7 +165,7 @@
         position: absolute;
         inset:4px;
         background: #222;
-        padding:50px 40px;
+        padding:20px 40px;
         border-radius:8px;
         z-index: 2;
         display: flex;

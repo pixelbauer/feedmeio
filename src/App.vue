@@ -5,7 +5,7 @@
         <div class="container">
           <div class="row">
             <div class="col text-start">
-              Food-Fusion.io
+              <span class="logoText">Food-o-Bot</span>
             </div>
             <div class="col text-end">
               <BButton @click="sideNav = true;"><i class="bi bi-list"></i></BButton>

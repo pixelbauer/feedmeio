@@ -18,8 +18,6 @@
           <div class="card-body">
             <h5 class="card-title">{{ recipe.recipe_name }}</h5>
             <p class="card-text">{{recipe.recipe_desc}}</p>
-            <p class="card-text">{{recipe}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </swiper-slide>
@@ -155,13 +153,17 @@ li {
   margin: 0 10px;
 }
 .card-img-top{
-  max-height:30vh;
+  max-height:40vh;
   width:auto;
+  object-fit: cover;
 }
 .card{
   background:#202124;
   color:white;
   height:calc(90vh - 65px);
+}
+.card-text{
+  white-space: break-spaces;
 }
 .pushSlide {
   display: flex;
